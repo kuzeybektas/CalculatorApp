@@ -1,6 +1,6 @@
 Collaboration with Aubrey Williams
 
-# C323.p2.calculator
+# CalculatorApp
 This project has the functions the same as an iPhone calculator app. 
 
 ## Functionality 
