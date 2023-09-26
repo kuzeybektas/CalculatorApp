@@ -99,36 +99,51 @@ class MainActivity : AppCompatActivity() {
         //operation clicks
         var add = findViewById<Button>(R.id.bAdd)
         add.setOnClickListener {
-            ans = numView.text.toString().toDouble()
-            op = "+"
-            op2 = "+"
-            numClick(add, numView)
-            prev = true
-            Log.i("Calculator", "user pressed '+'")}
+            if (numView.text.isNotEmpty()) {
+                ans = numView.text.toString().toDouble()
+                op = "+"
+                op2 = "+"
+                numClick(add, numView)
+                prev = true
+            }
+            Log.i("Calculator", "user pressed '+'")
+        }
         var sub = findViewById<Button>(R.id.bSubtr)
         sub.setOnClickListener {
-            ans = numView.text.toString().toDouble()
-            op = "-"
-            op2 = "-"
-            numClick(sub, numView)
-            prev = true
-            Log.i("Calculator", "user pressed '-'")}
+            if (numView.text.isNotEmpty()) {
+                ans = numView.text.toString().toDouble()
+                op = "-"
+                op2 = "-"
+                numClick(sub, numView)
+                prev = true
+            }
+            Log.i("Calculator", "user pressed '-'")
+        }
+
         var mul = findViewById<Button>(R.id.bMultip)
         mul.setOnClickListener {
-            ans = numView.text.toString().toDouble()
-            op = "x"
-            op2 = "x"
-            numClick(mul, numView)
-            prev = true
-            Log.i("Calculator", "user pressed 'X'")}
+            if (numView.text.isNotEmpty()) {
+                ans = numView.text.toString().toDouble()
+                op = "x"
+                op2 = "x"
+                numClick(mul, numView)
+                prev = true
+            }
+            Log.i("Calculator", "user pressed 'X'")
+        }
+
         var div = findViewById<Button>(R.id.bDivide)
         div.setOnClickListener {
-            ans = numView.text.toString().toDouble()
-            op = "/"
-            op2 = "/"
-            numClick(div, numView)
-            prev = true
-            Log.i("Calculator", "user pressed '/'")}
+            if (numView.text.isNotEmpty()) {
+                ans = numView.text.toString().toDouble()
+                op = "/"
+                op2 = "/"
+                numClick(div, numView)
+                prev = true
+            }
+            Log.i("Calculator", "user pressed '/'")
+        }
+
         //percent button
         var per = findViewById<Button>(R.id.bPercent)
         per.setOnClickListener {
@@ -145,7 +160,7 @@ class MainActivity : AppCompatActivity() {
         var pn = findViewById<Button>(R.id.bPosNeg)
         pn.setOnClickListener {
             Log.i("Calculator", "user pressed '-'")
-            if (numView.text.toString().toInt()<0)
+            if (numView.text.isNotEmpty() && numView.text.toString().toInt() < 0)
                 numView.text = numView.text.toString().substring(0)
             else{
                 numView.text = "-"+numView.text.toString()
@@ -154,38 +169,53 @@ class MainActivity : AppCompatActivity() {
 
         var sin: Button? = findViewById<Button>(R.id.bSin)
         if (sin != null) {
-            sin.setOnClickListener {
-                numView.text = sin(numView.text.toString().toDouble() * PI / 180).toString()
-                Log.i("Calculator", "user pressed 'sin'")
+            sin?.setOnClickListener {
+                if (numView.text.isNotEmpty()) {
+                    numView.text = sin(numView.text.toString().toDouble() * PI / 180).toString()
+                    Log.i("Calculator", "user pressed 'sin'")
+                }
             }
+
         }
         var cos: Button? = findViewById<Button>(R.id.bCos)
         if (cos != null) {
-            cos.setOnClickListener {
-                numView.text = cos(numView.text.toString().toDouble() * PI / 180).toString()
-                Log.i("Calculator", "user pressed 'cos'")
+            cos?.setOnClickListener {
+                if (numView.text.isNotEmpty()) {
+                    numView.text = cos(numView.text.toString().toDouble() * PI / 180).toString()
+                    Log.i("Calculator", "user pressed 'cos'")
+                }
             }
+
         }
         var tan: Button? = findViewById<Button>(R.id.bTan)
         if (tan != null) {
-            tan.setOnClickListener {
-                numView.text = tan(numView.text.toString().toDouble() * PI / 180).toString()
-                Log.i("Calculator", "user pressed 'tan'")
+            tan?.setOnClickListener {
+                if (numView.text.isNotEmpty()) {
+                    numView.text = tan(numView.text.toString().toDouble() * PI / 180).toString()
+                    Log.i("Calculator", "user pressed 'tan'")
+                }
             }
+
         }
         var log: Button? = findViewById<Button>(R.id.bLog10)
         if (log != null) {
-            log.setOnClickListener {
-                numView.text = log(numView.text.toString().toDouble(), 10.0).toString()
-                Log.i("Calculator", "user pressed 'log10'")
+            log?.setOnClickListener {
+                if (numView.text.isNotEmpty()) {
+                    numView.text = log(numView.text.toString().toDouble(), 10.0).toString()
+                    Log.i("Calculator", "user pressed 'log10'")
+                }
             }
+
         }
         var ln: Button? = findViewById<Button>(R.id.bln)
         if (ln != null) {
-            ln.setOnClickListener {
-                numView.text = ln(numView.text.toString().toDouble()).toString()
-                Log.i("Calculator", "user pressed 'ln'")
+            ln?.setOnClickListener {
+                if (numView.text.isNotEmpty()) {
+                    numView.text = ln(numView.text.toString().toDouble()).toString()
+                    Log.i("Calculator", "user pressed 'ln'")
+                }
             }
+
         }
     }
     //function for number clicks
